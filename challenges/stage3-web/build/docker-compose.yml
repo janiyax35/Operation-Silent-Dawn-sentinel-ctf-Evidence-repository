@@ -1,0 +1,27 @@
+services:
+
+  stage3:
+    build: .
+
+    container_name: stage3-staging-drop
+
+    ports:
+      - "8080:8080"
+
+    restart: unless-stopped
+
+    mem_limit: 512m
+
+    cpus: 1.0
+
+    security_opt:
+      - no-new-privileges:true
+
+    networks:
+      - stage3_net
+
+
+networks:
+
+  stage3_net:
+    driver: bridge
