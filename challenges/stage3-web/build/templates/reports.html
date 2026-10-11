@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>System Reports</title>
+    <style>
+        :root { --bg: #060913; --panel: rgba(13, 20, 36, 0.9); --cyan: #38bdf8; --text: #f1f5f9; --mono: 'Courier New', monospace; }
+        body { background: var(--bg); color: var(--text); font-family: -apple-system, sans-serif; padding: 40px; }
+        .container { max-width: 900px; margin: 0 auto; }
+        .nav { background: #0a0f1d; padding: 15px 25px; border: 1px solid #1e293b; border-radius: 6px; margin-bottom: 20px; display: flex; justify-content: space-between; font-family: var(--mono); }
+        .nav a { color: var(--cyan); text-decoration: none; margin-left: 20px; font-weight: bold; }
+        .panel { background: var(--panel); border: 1px solid var(--cyan); padding: 30px; border-radius: 8px; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; font-family: var(--mono); font-size: 0.9rem; }
+        th, td { padding: 14px; text-align: left; border-bottom: 1px solid #1e293b; }
+        th { color: #94a3b8; text-transform: uppercase; font-size: 0.8rem; }
+        .btn { padding: 8px 14px; background: #0284c7; color: white; text-decoration: none; border-radius: 4px; font-size: 0.8rem; }
+        .btn:hover { background: #0369a1; }
+        .btn-disabled { padding: 8px 14px; background: #334155; color: #94a3b8; border-radius: 4px; font-size: 0.8rem; cursor: not-allowed; text-decoration: none; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="nav">
+            <div>SENTINEL SYSTEM - REPORTS</div>
+            <div>
+                <a href="/dashboard">Dashboard</a>
+                <a href="/reports" style="color: #fff;">System Reports</a>
+                <a href="/logout">Logout</a>
+            </div>
+        </div>
+
+        <div class="panel">
+            <h2 style="color: var(--cyan); font-family: var(--mono); margin-top: 0;">Automated Audit Logs</h2>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Report ID</th>
+                        <th>Classification</th>
+                        <th>Timestamp</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>01</td>
+                        <td>Routine Calibration</td>
+                        <td>03:15:00 UTC</td>
+                        <td><a href="/reports/view?id=1" class="btn">Read Report</a></td>
+                    </tr>
+                    <tr>
+                        <td>02</td>
+                        <td>Network Traffic</td>
+                        <td>04:00:00 UTC</td>
+                        <td><a href="/reports/view?id=2" class="btn">Read Report</a></td>
+                    </tr>
+                    <tr>
+                        <td style="color: #f87171;">99</td>
+                        <td style="color: #f87171;">QUARANTINED INTERCEPT</td>
+                        <td style="color: #f87171;">04:18:22 UTC</td>
+                        <!-- The UI prevents clicking. The player must deduce how to view ID 99 manually. -->
+                        <td><a href="#" class="btn-disabled" onclick="return false;">ACCESS DENIED</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>
