@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Telemetry Viewer</title>
+    <style>
+        :root { --bg: #060913; --panel: rgba(13, 20, 36, 0.9); --cyan: #38bdf8; --green: #4ade80; --text: #f1f5f9; --mono: 'Courier New', monospace; }
+        body { background: var(--bg); color: var(--text); font-family: -apple-system, sans-serif; padding: 40px; }
+        .container { max-width: 800px; margin: 0 auto; background: var(--panel); border: 1px solid var(--cyan); padding: 30px; border-radius: 8px; }
+        .terminal { background: #050811; padding: 20px; border: 1px solid #1e293b; border-radius: 6px; font-family: var(--mono); margin-top: 20px; white-space: pre-wrap; color: #cbd5e1; }
+        .flag-text { color: var(--green); font-weight: bold; font-size: 1.1rem; }
+        a.btn { padding: 8px 16px; background: #1e293b; color: #fff; text-decoration: none; border-radius: 4px; font-size: 0.85rem; font-family: var(--mono); border: 1px solid #334155; }
+        a.btn:hover { background: #334155; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="/dashboard" class="btn">← Back to Dashboard</a>
+        
+        <h3 style="color: var(--cyan); font-family: var(--mono); margin-top: 25px;">{{ title }}</h3>
+        
+        <div class="terminal {% if is_flag %}flag-text{% endif %}">{{ data }}</div>
+    </div>
+</body>
+</html>
